@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 pcenter;
 
 
+	private bool dead;
+
 
 
 
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		dead = false;
 		//player = GameObject.Find("Player");
 		animator = player.GetComponent<Animator> ();
 		rigidBody = player.GetComponent<Rigidbody2D> ();
@@ -63,7 +66,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (dead) return;
 		AnimatorStateInfo aniInfo = animator.GetCurrentAnimatorStateInfo (0);
 	
 		if(aniInfo.nameHash == codeStateNijia)
@@ -101,8 +104,12 @@ public class PlayerController : MonoBehaviour {
 	{
 //		AnimatorStateInfo aniInfo = animator.GetCurrentAnimatorStateInfo (0);
 		//if (aniInfo.nameHash != codeStateNijiadie) {
-			animator.SetInteger("state",2);
-			animator.Play (codeStateNijiadie);
+
+		animator.SetInteger("state",2);
+		animator.Play (codeStateNijiadie);
+		AnimatorStateInfo aniInfo = animator.GetCurrentAnimatorStateInfo (0);
+		Debug.Log (aniInfo.nameHash);
+
 		//}
 
 		Fgscroller fg0 = foreground[0].GetComponent<Fgscroller> ();
@@ -153,20 +160,23 @@ public class PlayerController : MonoBehaviour {
 				monkey.Die();
 			}
 			else{
+				dead = true;
 				this.Die();
 			}
+			return;
 		}
 			//Debug.Log (colliderInfo.gameObject.tag);
 
 		else if (colliderInfo.gameObject.tag == "roof" /*&& aniInfo.nameHash != codeStateNijia*/) 
 		{
 
+			dead = true;
 			this.Die();
-		
+			return;
 		}
 
 
-		else if (aniInfo.nameHash == codeStateNijia && colliderInfo.gameObject.tag != "monkey" && colliderInfo.gameObject.tag != "roof") {
+		else if (!dead && aniInfo.nameHash == codeStateNijia && colliderInfo.gameObject.tag != "monkey" && colliderInfo.gameObject.tag != "roof") {
 			animator.SetInteger("state",1);
 			animator.Play (codeStateNijiarun);
 
