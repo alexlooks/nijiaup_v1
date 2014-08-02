@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour {
 	private Transform roofTrans;
 	private Transform start;
 	private Rigidbody2D roofBody;
-	private GameObject uiroot;
+//	private GameObject uiroot;
 	private int idx;
 
 	private int flag;
@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//enemyRoof =  GameObject.FindGameObjectsWithTag("roof");
-		uiroot = GameObject.Find ("UI Root");
+		//uiroot = GameObject.Find ("UI Root");
 //		Debug.Log (enemyRoof);
 		//startRight = startPositionRight.GetComponent<Transform> ();
 		//startLeft = startPositionLeft.GetComponent<Transform>();

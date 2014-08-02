@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-	private float forceUp, forceRight;
+//	private float forceUp, forceRight;
 	private Transform target;//目标位置物体
 
 
@@ -52,8 +52,8 @@ public class PlayerController : MonoBehaviour {
 //		boxCollider = player.GetComponent<BoxCollider2D> ();
 
 		target = player.GetComponent<Transform> ();
-		forceUp = 4f;
-		forceRight = 5f;
+		//forceUp = 4f;
+		//forceRight = 5f;
 
 		codeStateNijia = Animator.StringToHash (STATE_NIJIA);
 		codeStateNijiarun = Animator.StringToHash (STATE_NIJIARUN);
@@ -90,8 +90,8 @@ public class PlayerController : MonoBehaviour {
 		{
 			rigidBody.AddForce(Vector3.up * 0);
 			if (Input.GetMouseButtonUp (0)) {
-				forceUp = 4f;
-				forceRight = 5f;
+				//forceUp = 4f;
+				//forceRight = 5f;
 				forceFlag = !forceFlag;
 				animator.SetInteger("state",0);
 				animator.Play (codeStateNijia);
