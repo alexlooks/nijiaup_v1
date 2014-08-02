@@ -21,5 +21,10 @@ public class GameEvent : MonoBehaviour {
 
 	}
 
+	public void ResetGame()
+	{
+		Application.LoadLevel("run");
+	}
+
 
 }

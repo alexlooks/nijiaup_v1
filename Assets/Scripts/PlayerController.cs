@@ -149,8 +149,8 @@ public class PlayerController : MonoBehaviour {
 		{
 			if ( aniInfo.nameHash == codeStateNijia)
 			{
-			Monkey monkey = colliderInfo.GetComponent<Monkey>();
-			monkey.Die();
+				Monkey monkey = colliderInfo.GetComponent<Monkey>();
+				monkey.Die();
 			}
 			else{
 				this.Die();
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour {
 		}
 			//Debug.Log (colliderInfo.gameObject.tag);
 
-		if (colliderInfo.gameObject.tag == "roof" /*&& aniInfo.nameHash != codeStateNijia*/) 
+		else if (colliderInfo.gameObject.tag == "roof" /*&& aniInfo.nameHash != codeStateNijia*/) 
 		{
 
 			this.Die();
