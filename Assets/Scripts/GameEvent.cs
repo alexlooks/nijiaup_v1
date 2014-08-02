@@ -26,5 +26,15 @@ public class GameEvent : MonoBehaviour {
 		Application.LoadLevel("run");
 	}
 
+	public void StartGame()
+	{
+		Application.LoadLevel("run");
+	}
+
+	public void GotoMain()
+	{
+		Application.LoadLevel("main");
+	}
+
 
 }

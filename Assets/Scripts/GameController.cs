@@ -54,4 +54,7 @@ public class GameController : MonoBehaviour {
 	{
 		resultPanel.SetActive (true);
 	}
+
+
+
 }
